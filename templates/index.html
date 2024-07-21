@@ -1,15 +1,22 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
+<head>
+    <meta charset="UTF-8"/>
     <title>Library</title>
-  </head>
-  <body>
-    <h1>My Library</h1>
-    <ul>
-      <li></li>
-    </ul>
+</head>
+<body>
+<h1>My Library</h1>
 
-    <a href="">Add New Book</a>
-  </body>
+    {% if books %}
+        <ul>
+        {% for book in books %}
+            <li>{{ book.title }} - {{ book.author }} - {{ book.rating }}/10</li>
+        {% endfor %}
+         </ul>
+    {% else %}
+        <p>Library is empty.</p>
+    {% endif %}
+
+<a href="{{ url_for('add') }}">Add New Book</a>
+</body>
 </html>
